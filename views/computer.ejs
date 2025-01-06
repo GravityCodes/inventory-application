@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
+  <link rel="stylesheet" href="/style.css">
+  <title>Computers</title>
 </head>
 <body>
   <h1>Desktops</h1>
   <a href="/">Back to home</a>
-  <div class="computer">
-    <div class="component">
+  <a href="/computer/add">Add New Computer</a>
+  <div class="computer-container">
+  <% computers.map(computer => { %>
+    <div class="computer">
       <div>Name: <%= computer.name %></div>
       <div>CPU: <%= computer.cpu_name %></div>
       <div>Graphics Card: <%= computer.gpu_name %></div>
@@ -18,6 +21,7 @@
       <div>Storage: <%= computer.storage_name %></div>
       <div>Case: <%= computer.case_name %></div>
     </div>
-  </div>
+  <% }) %>
+</div>
 </body>
 </html>

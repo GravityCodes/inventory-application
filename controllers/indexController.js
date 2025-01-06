@@ -36,14 +36,9 @@ async function categoryGet (req, res) {
   res.render("category", {products, title, section: tableName});
 }
 
-async function computerGet (req,res) {
-  const computerName = req.params.name;
-  const computer = await db.getComputer(computerName);
-  res.render("computer", {title: computerName, computer : computer[0]});
-}
+
 
 module.exports = {
   homePageGet,
-   categoryGet,
-   computerGet
+   categoryGet
 }

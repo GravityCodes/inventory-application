@@ -10,9 +10,7 @@
   <h1>Computer Inventory Application</h1>
   <h2>My Computers</h2>
   <ul>
-     <% computers.map(computer => {  %>
-        <li><a href=<%= `/computer/${computer.name.split(" ").join("%20")}` %>><%= computer.name %></a></li>
-      <% })  %>
+     <li><a href="/computer">Computers</a></li>
   </ul>
   <h2>Components</h2>
   <ul>

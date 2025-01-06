@@ -1,0 +1,77 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/computer/add" method="POST">
+    <h1 style="margin: 0 auto; ">Add New Computer</h1>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div class="form-field">
+      <label for="cpu">Cpu</label>
+      <select name="cpu" id="cpu" required>
+        <option value="">--Please select a CPU--</option>
+        <% components.cpu.forEach( cpu => {%>
+          <option value=<%= cpu.id %>><%= cpu.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="gpu">Gpu</label>
+      <select name="gpu" id="gpu" required>
+        <option value="">--Please select a GPU--</option>
+        <% components.gpu.forEach( gpu => {%>
+          <option value=<%= gpu.id %>><%= gpu.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="motherboards">Motherboard</label>
+      <select name="motherboards" id="motherboards" required>
+        <option value="">--Please select a Motherboard--</option>
+        <% components.motherboards.forEach( motherboards => {%>
+          <option value=<%= motherboards.id %>><%= motherboards.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="psu">Power Supply</label>
+      <select name="psu" id="psu" required>
+        <option value="">--Please select a Power Supply--</option>
+        <% components.psu.forEach( psu => {%>
+          <option value=<%= psu.id %>><%= psu.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="rams">Ram</label>
+      <select name="rams" id="rams" required>
+        <option value="">--Please select a Ram--</option>
+        <% components.rams.forEach( rams => {%>
+          <option value=<%= rams.id %>><%= rams.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="storage">Storage</label>
+      <select name="storage" id="storage" required>
+        <option value="">--Please select a Storage--</option>
+        <% components.storage.forEach( storage => {%>
+          <option value=<%= storage.id %>><%= storage.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="cases">Case</label>
+      <select name="cases" id="cases" required>
+        <option value="">--Please select a Case--</option>
+        <% components.cases.forEach( cases => {%>
+          <option value=<%= cases.id %>><%= cases.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <button type="submit">Add Computer</button>
+  </form>
+  <a href="/computer">Cancel</a>
+</body>

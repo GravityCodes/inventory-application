@@ -16,7 +16,7 @@ async function getProduct(table, id){
   return rows;
 }
 
-async function getComputer(computer){
+async function getComputers(computer){
   const { rows } = await pool.query(`
     SELECT c.name,
      cpu.name AS cpu_name,
@@ -34,8 +34,7 @@ async function getComputer(computer){
     LEFT JOIN storage ON c.storage_id = storage.id
     LEFT JOIN rams ON c.ram_id = rams.id
     LEFT JOIN psu ON c.psu_id = psu.id
-    WHERE c.name = $1;
-    `, [computer]);
+    `);
   return rows;
 }
 
@@ -112,10 +111,26 @@ async function removeItem(section, id) {
   await pool.query(query);
 }
 
+async function getComponents() {
+  const tables = ['gpu', 'cpu', 'cases', 'motherboards', 'psu', 'rams', 'storage'];
+  let data = {};
+
+  for(const table of tables){
+   let { rows } = await pool.query(format(`SELECT id, name FROM %I`, table));
+   data[table] = rows;
+  }
+  return data;
+}
+
+async function addComputer(params) {
+  await pool.query(`INSERT INTO computers(name, cpu_id, gpu_id, motherboard_id, psu_id, ram_id, storage_id, case_id)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`, [params.name, params.cpu, params.gpu, params.motherboards, params.psu, params.rams, params.storage, params.cases]);
+}
+
 module.exports = {
   getComputers,
   getTable,
-  getComputer,
+  getComputers,
   getProduct,
   editMotherBoard,
   editCPU,
@@ -125,5 +140,7 @@ module.exports = {
   editPSU,
   editCase,
   addItem,
-  removeItem
+  removeItem,
+  getComponents,
+  addComputer
 }

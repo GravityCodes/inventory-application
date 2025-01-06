@@ -43,3 +43,15 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.computer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.computer {
+  background-color: #444;
+  color: aqua;
+  padding: 10px;
+}
