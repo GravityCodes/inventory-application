@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= computer.name %></h1>
+  <a href="/">Back to home</a>
+  <div class="computer">
+    <div class="component">
+      <div>CPU: <%= computer.cpu_name %></div>
+      <div>Graphics Card: <%= computer.gpu_name %></div>
+      <div>Motherboard: <%= computer.motherboard_name %></div>
+      <div>Power Supply: <%= computer.psu_name %></div>
+      <div>Storage: <%= computer.storage_name %></div>
+      <div>Case: <%= computer.case_name %></div>
+    </div>
+  </div>
+</body>
+</html>

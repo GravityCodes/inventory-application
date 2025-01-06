@@ -1,0 +1,42 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/category/add/motherboards" method="post">
+    <h1 style="margin: 0 auto;">Add New MotherBoard</h1>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" maxlength="255" required>
+    </div>
+    <div class="form-field">
+        <label for="cpu_socket">Cpu socket</label>
+        <input type="text" name="cpu_socket" id="cpu_socket" maxlength="255" required>
+    </div>
+    <div class="form-field">
+      <label for="model">Model</label>
+      <input type="text" name="model" id="model" required>
+    </div>
+    <div class="form-field">
+      <label for="chipset">Chipset</label>
+      <input type="text" name="chipset" id="chipset" maxlength="40" required>
+    </div>
+    <div class="form-field">
+      <label for="max_memory">Max memory</label>
+      <input type="text" name="max_memory" id="max_memory" maxlength="40">
+    </div>
+    <div class="form-field">
+      <label for="memory_standard">Memory standard</label>
+      <input type="text" name="memory_standard" id="memory_standard" maxlength="40" required>
+    </div>
+    <div class="form-field">
+      <label for="form_factor">Form factor</label>
+      <input type="text" name="form_factor" id="form_factor" maxlength="255" required>
+    </div>
+    <div class="form-field">
+      <label for="cost">Cost</label>
+      <input type="number" name="cost" id="cost" required >
+    </div>
+    <button type="submit">Add</button>
+  </form>
+  <a href="/category/motherboards">Cancel</a>
+</body>

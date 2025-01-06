@@ -1,0 +1,22 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action=<%= `/category/edit/${table}` %> method="POST">
+          <input type="hidden" name="table" id="table" value="<%= table %>">
+    <% for( const [key, object] of Object.entries(product)) { %>
+      <% if (key == "id") { %>
+          <input type="hidden" id="<%= key %>" name="<%= key %>" value="<%= object %>">
+          <% continue; %>
+      <% } %>
+      <div class="form-field">
+        <label for=<%= key %>><%= key %></label>
+        <input type=<%= typeof object == "string" ? "text" : "number"  %> value="<%= object %>" name="<%= key  %>" id="<%= key %>">
+      </div>
+    <% }; %>
+      
+    <button type="submit" >Update</button>
+  
+  </form>
+  <a href=<%= `/category/${table}`%>>Cancel</a>
+</body>

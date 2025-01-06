@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <a href="/">Back to home</a>
+  
+  <a href=<%= `/category/add/${section}` %> style="display: block;">Add new item</a>
+
+  <div class="products">
+    <% products.map(product => { %>
+      <div class="product">
+        <div class="buttons">
+          <a href=<%= `edit/${section}/${product.id}` %>>Edit</a>
+          <a href=<%= `remove/${product.id}` %>>Remove</a>
+        </div>
+        <div class="details">
+          <% for( const [key, object] of Object.entries(product)) { %>
+            <% if (key == "id") continue; %>
+            <div class="detail">
+              <p><%= key %> :</p>
+              <p><%= object %></p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+      <% }); %>
+  </div>
+</body>
+</html>
