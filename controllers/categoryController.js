@@ -49,14 +49,28 @@ function addFormGet(req, res) {
   res.render(`add_items/${req.params.name}`);
 }
 
-function addMotherboardsFormPost(req, res) {
+function addItemFormPost(req, res) {
   const columns = Object.keys(req.body).filter(key => req.body[key] != '');
   const values = Object.values(req.body).filter(value => value != '');
 
-  db.addMotherboard(columns, values);
-  res.redirect("/category/motherboards");
+
+  db.addItem(req.params.section, columns,values);
+  
+  res.redirect(`/category/${req.params.section}`);
 }
 
+
+function removeItemGet(req, res) {
+  res.render("remove", {section: req.params.section, id: req.params.id})
+}
+
+async function removeItemPost(req, res) {
+  if(req.body.password != process.env.PASSWORD){
+    return res.status(400).render("remove", {section: req.params.section, id: req.params.id, errors: [{msg: "Password is incorrect"}]});
+  }
+  await db.removeItem(req.params.section, req.params.id);
+  req.redirect(`/category/${req.params.section}`);
+}
 
 module.exports = {
   categoryFormGet,
@@ -67,6 +81,8 @@ module.exports = {
   editStorageFormPost,
   editPSUFormPost,
   editCaseFormPost,
-  addMotherboardsFormPost,
-  addFormGet
+  addItemFormPost,
+  addFormGet,
+  removeItemGet,
+  removeItemPost
 }

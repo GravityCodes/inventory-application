@@ -1,0 +1,34 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/category/add/cpu" method="post">
+    <h1 style="margin: 0 auto;">Add New CPU</h1>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" maxlength="255" required>
+    </div>
+    <div class="form-field">
+        <label for="cpu_socket">Cpu socket</label>
+        <input type="text" name="cpu_socket" id="cpu_socket" maxlength="255" required>
+    </div>
+    <div class="form-field">
+      <label for="num_cores">Number of cores</label>
+      <input type="number" name="num_cores" id="num_cores" required>
+    </div>
+    <div class="form-field">
+      <label for="series">Series</label>
+      <input type="text" name="series" id="series" required>
+    </div>
+    <div class="form-field">
+      <label for="operating_frequency">Operating Frequency</label>
+      <input type="number" name="operating_frequency" id="operating_frequency" step=".02" required>
+    </div>
+    <div class="form-field">
+      <label for="integrated_graphics">Integrated Graphics</label>
+      <input type="text" name="integrated_graphics" id="integrated_graphics"  required>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+  <a href="/category/cpu">Cancel</a>
+</body>

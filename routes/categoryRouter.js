@@ -13,6 +13,9 @@ categoryRouter.post("/edit/psu", categoryController.editPSUFormPost);
 categoryRouter.post("/edit/cases", categoryController.editCaseFormPost);
 
 categoryRouter.get("/add/:name", categoryController.addFormGet)
-categoryRouter.post("/add/motherboards", categoryController.addMotherboardsFormPost);
+categoryRouter.post("/add/:section", categoryController.addItemFormPost);
+
+categoryRouter.get("/remove/:section/:id", categoryController.removeItemGet);
+categoryRouter.post("/remove/:section/:id", categoryController.removeItemPost);
 
 module.exports = categoryRouter;

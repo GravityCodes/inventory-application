@@ -17,7 +17,7 @@
       <div class="product">
         <div class="buttons">
           <a href=<%= `edit/${section}/${product.id}` %>>Edit</a>
-          <a href=<%= `remove/${product.id}` %>>Remove</a>
+          <a href=<%= `remove/${section}/${product.id}` %>>Remove</a>
         </div>
         <div class="details">
           <% for( const [key, object] of Object.entries(product)) { %>

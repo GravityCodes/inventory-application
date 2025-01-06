@@ -1,0 +1,26 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/category/add/rams" method="post">
+    <h1 style="margin: 0 auto;">Add New Ram</h1>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" maxlength="255" required>
+    </div>
+    <div class="form-field">
+        <label for="capacity">Capacity</label>
+        <input type="text" name="capacity" id="capacity" maxlength="40" required>
+    </div>
+    <div class="form-field">
+      <label for="ram_generation">Ram generation</label>
+      <input type="number" name="ram_generation" id="ram_generation" maxlength="40" required>
+    </div>
+    <div class="form-field">
+      <label for="Series">Series</label>
+      <input type="text" name="Series" id="Series"  required>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+  <a href="/category/rams">Cancel</a>
+</body>

@@ -102,9 +102,13 @@ function editCase(params){
     `, [params.color, params.name, params.type, params.series, params.id])
 }
 
-async function addMotherboard(columns, values) {
-  const query = format(`INSERT INTO motherboards(%I) VALUES(%L)`, columns, values);
-  console.log(query);
+async function addItem(section,columns, values) {
+  const query = format(`INSERT INTO %I(%I) VALUES(%L)`, section, columns, values);
+  await pool.query(query);
+}
+
+async function removeItem(section, id) {
+  const query = format(`DELETE FROM %I WHERE id = (%L)`, section, id);
   await pool.query(query);
 }
 
@@ -120,5 +124,6 @@ module.exports = {
   editStorage,
   editPSU,
   editCase,
-  addMotherboard
+  addItem,
+  removeItem
 }

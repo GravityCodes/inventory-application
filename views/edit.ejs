@@ -3,6 +3,7 @@
 </head>
 <body>
   <form action=<%= `/category/edit/${table}` %> method="POST">
+    <h1 style="margin: 0 auto;">Edit Item</h1>
           <input type="hidden" name="table" id="table" value="<%= table %>">
     <% for( const [key, object] of Object.entries(product)) { %>
       <% if (key == "id") { %>

@@ -1,0 +1,26 @@
+<head>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/category/add/gpu" method="post">
+    <h1 style="margin: 0 auto;">Add New GPU</h1>
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" maxlength="255" required>
+    </div>
+    <div class="form-field">
+        <label for="chipset_manu">Chipset Manufacturer</label>
+        <input type="text" name="chipset_manu" id="chipset_manu" maxlength="255" required>
+    </div>
+    <div class="form-field">
+      <label for="memory_size_gb">Memory size in gigabytes</label>
+      <input type="number" name="memory_size_gb" id="memory_size_gb" required>
+    </div>
+    <div class="form-field">
+      <label for="recomm_psu">Recommended PSU wattage</label>
+      <input type="text" name="recomm_psu" id="recomm_psu" maxlength="4" required>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+  <a href="/category/gpu">Cancel</a>
+</body>
