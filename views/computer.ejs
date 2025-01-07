@@ -20,6 +20,10 @@
       <div>Power Supply: <%= computer.psu_name %></div>
       <div>Storage: <%= computer.storage_name %></div>
       <div>Case: <%= computer.case_name %></div>
+      <div class="buttons" style="margin-top:5px;">
+        <a href=<%= `/computer/edit/${computer.id}`%>>Edit</a>
+        <a href=<%= `/remove/computers/${computer.id}`%>>Remove</a>
+      </div>
     </div>
   <% }) %>
 </div>

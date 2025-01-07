@@ -4,8 +4,10 @@ const computerController = require("../controllers/computerController");
 
 
 computerRouter.get("/", computerController.computerGet);
-computerRouter.get("/add", computerController.addComputerGet);
 
+computerRouter.get("/edit/:id", computerController.editComputerFormGet);
+
+computerRouter.get("/add", computerController.addComputerGet);
 computerRouter.post("/add", computerController.addComputerPost);
 
 module.exports = computerRouter;

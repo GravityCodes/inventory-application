@@ -60,17 +60,9 @@ function addItemFormPost(req, res) {
 }
 
 
-function removeItemGet(req, res) {
-  res.render("remove", {section: req.params.section, id: req.params.id})
-}
 
-async function removeItemPost(req, res) {
-  if(req.body.password != process.env.PASSWORD){
-    return res.status(400).render("remove", {section: req.params.section, id: req.params.id, errors: [{msg: "Password is incorrect"}]});
-  }
-  await db.removeItem(req.params.section, req.params.id);
-  req.redirect(`/category/${req.params.section}`);
-}
+
+
 
 module.exports = {
   categoryFormGet,
@@ -82,7 +74,5 @@ module.exports = {
   editPSUFormPost,
   editCaseFormPost,
   addItemFormPost,
-  addFormGet,
-  removeItemGet,
-  removeItemPost
+  addFormGet
 }

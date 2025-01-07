@@ -1,10 +1,6 @@
 const pool = require("./pool");
 const format = require('pg-format');
 
-async function getComputers() {
-  const { rows } = await pool.query('SELECT * FROM computers;');
-  return rows;
-}
 
 async function getTable(table){
   const { rows } = await pool.query(`SELECT * FROM ${table};`);
@@ -16,9 +12,9 @@ async function getProduct(table, id){
   return rows;
 }
 
-async function getComputers(computer){
+async function getComputers(){
   const { rows } = await pool.query(`
-    SELECT c.name,
+    SELECT c.id, c.name,
      cpu.name AS cpu_name,
      gpu.name AS gpu_name,
      motherboards.name AS motherboard_name,
@@ -127,6 +123,11 @@ async function addComputer(params) {
                     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`, [params.name, params.cpu, params.gpu, params.motherboards, params.psu, params.rams, params.storage, params.cases]);
 }
 
+async function getComputerWithId(id) {
+  const { rows } = await pool.query(`SELECT * FROM computers  WHERE id = $1`, [id]);
+  return rows;
+}
+
 module.exports = {
   getComputers,
   getTable,
@@ -142,5 +143,7 @@ module.exports = {
   addItem,
   removeItem,
   getComponents,
-  addComputer
+  addComputer,
+  getComputerWithId
+
 }
