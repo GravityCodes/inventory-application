@@ -14,13 +14,19 @@
     </div>
     <div class="form-field">
       <label for="type">Type</label>
-      <input type="number" name="type" id="type" maxlength="255" required>
+      <input type="text" name="type" id="type" maxlength="255" required>
     </div>
     <div class="form-field">
       <label for="series">Series</label>
-      <input type="text" name="series" id="series" maxlength="4" required>
+      <input type="text" name="series" id="series" maxlength="255" required>
+    </div>
+    <div class="form-field">
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" required >
     </div>
     <button type="submit">Add</button>
   </form>
-  <a href="/category/cases">Cancel</a>
+  <div class="cancel-wrapper">
+    <a href="/category/cases">Cancel</a>
+  </div>
 </body>

@@ -13,8 +13,8 @@
         <input type="text" name="cpu_socket" id="cpu_socket" maxlength="255" required>
     </div>
     <div class="form-field">
-      <label for="num_cores">Number of cores</label>
-      <input type="number" name="num_cores" id="num_cores" required>
+      <label for="number_of_cores">Number of cores</label>
+      <input type="number" name="number_of_cores" id="number_of_cores" required>
     </div>
     <div class="form-field">
       <label for="series">Series</label>
@@ -28,7 +28,13 @@
       <label for="integrated_graphics">Integrated Graphics</label>
       <input type="text" name="integrated_graphics" id="integrated_graphics"  required>
     </div>
+    <div class="form-field">
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" required >
+    </div>
     <button type="submit">Add</button>
   </form>
-  <a href="/category/cpu">Cancel</a>
+  <div class="cancel-wrapper">
+    <a href="/category/cpu">Cancel</a>
+  </div>
 </body>

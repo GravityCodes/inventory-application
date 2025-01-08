@@ -9,18 +9,24 @@
       <input type="text" name="name" id="name" maxlength="255" required>
     </div>
     <div class="form-field">
-        <label for="chipset_manu">Chipset Manufacturer</label>
-        <input type="text" name="chipset_manu" id="chipset_manu" maxlength="255" required>
+        <label for="chipset_manufacturer">Chipset Manufacturer</label>
+        <input type="text" name="chipset_manufacturer" id="chipset_manufacturer" maxlength="255" required>
     </div>
     <div class="form-field">
       <label for="memory_size_gb">Memory size in gigabytes</label>
       <input type="number" name="memory_size_gb" id="memory_size_gb" required>
     </div>
     <div class="form-field">
-      <label for="recomm_psu">Recommended PSU wattage</label>
-      <input type="text" name="recomm_psu" id="recomm_psu" maxlength="4" required>
+      <label for="recommended_psu">Recommended PSU wattage</label>
+      <input type="text" name="recommended_psu" id="recommended_psu" maxlength="4" required>
+    </div>
+    <div class="form-field">
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" required >
     </div>
     <button type="submit">Add</button>
   </form>
-  <a href="/category/gpu">Cancel</a>
+  <div class="cancel-wrapper">
+    <a href="/category/gpu">Cancel</a>
+  </div>
 </body>
