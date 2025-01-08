@@ -38,63 +38,63 @@ function editMotherBoard(params){
 
   pool.query(`
       UPDATE motherboards
-      SET cpu_socket = $1, model = $2, chipset = $3, max_memory = $4, memory_standard = $5, form_factor = $6, cost = $7, name = $8
+      SET cpu_socket = $1, model = $2, chipset = $3, max_memory = $4, memory_standard = $5, form_factor = $6, price = $7, name = $8
       WHERE id = $9;
-    `, [params.cpu_socket, params.model, params.chipset, params.max_memory, params.memory_standard, params.form_factor, params.cost, params.name, params.id])
+    `, [params.cpu_socket, params.model, params.chipset, params.max_memory, params.memory_standard, params.form_factor, params.price, params.name, params.id])
 }
 
 function editCPU(params){
 
   pool.query(`
       UPDATE cpu
-      SET series = $1, cpu_socket = $2, num_cores = $3, operating_frequency = $4, integrated_graphics = $5, name = $6
-      WHERE id = $7;
-    `, [params.series, params.cpu_socket, params.num_cores, params.operating_frequency, params.integrated_graphics, params.name, params.id])
+      SET series = $1, cpu_socket = $2, number_of_cores = $3, operating_frequency = $4, integrated_graphics = $5, price = $6, name = $7
+      WHERE id = $8;
+    `, [params.series, params.cpu_socket, params.number_of_cores, params.operating_frequency, params.integrated_graphics,params.price, params.name, params.id])
 }
 
 function editGPU(params){
 
   pool.query(`
       UPDATE gpu
-      SET chipset_manu = $1, name = $2, memory_size_gb = $3, recomm_psu = $4
-      WHERE id = $5;
-    `, [params.chipset_manu, params.name, params.memory_size_gb, params.recomm_psu, params.id])
+      SET chipset_manufacturer = $1, name = $2, memory_size_gb = $3, recommended_psu = $4, price = $5
+      WHERE id = $6;
+    `, [params.chipset_manufacturer, params.name, params.memory_size_gb, params.recommended_psu, params.price, params.id])
 }
 
 function editRams(params){
 
   pool.query(`
       UPDATE rams
-      SET capacity = $1, ram_generation = $2, series = $3, name = $4
-      WHERE id = $5;
-    `, [params.capacity, params.ram_generation, params.series, params.name, params.id])
+      SET capacity = $1, ram_generation = $2, series = $3, name = $4, price = $5
+      WHERE id = $6;
+    `, [params.capacity, params.ram_generation, params.series, params.name,params.price, params.id])
 }
 
 function editStorage(params){
 
   pool.query(`
       UPDATE storage
-      SET series = $1, capacity = $2, ${params.rpm ? `rpm = ${params.rpm},` : ""} name = $3
-      WHERE id = $4;
-    `, [params.series, params.capacity , params.name, params.id])
+      SET series = $1, capacity = $2, ${params.rpm ? `rpm = ${params.rpm},` : ""} name = $3, price = $4
+      WHERE id = $5;
+    `, [params.series, params.capacity , params.name, params.price, params.id])
 }
 
 function editPSU(params){
 
   pool.query(`
       UPDATE psu
-      SET series = $1, name = $2, model = $3, max_power_w = $4, form_factor = $5, energy_efficient = $6
-      WHERE id = $7;
-    `, [params.series, params.name, params.model, params.max_power_w, params.form_factor, params.energy_efficient, params.id])
+      SET series = $1, name = $2, model = $3, max_power_w = $4, form_factor = $5, energy_efficient = $6, price = $7
+      WHERE id = $8;
+    `, [params.series, params.name, params.model, params.max_power_w, params.form_factor, params.energy_efficient,params.price, params.id])
 }
 
 function editCase(params){
 
   pool.query(`
       UPDATE cases
-      SET color = $1, name = $2, type = $3, series = $4
-      WHERE id = $5;
-    `, [params.color, params.name, params.type, params.series, params.id])
+      SET color = $1, name = $2, type = $3, series = $4, price = $5
+      WHERE id = $6;
+    `, [params.color, params.name, params.type, params.series,params.price, params.id])
 }
 
 async function addItem(section,columns, values) {
