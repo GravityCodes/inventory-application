@@ -8,28 +8,33 @@
 </head>
 <body>
   <h1><%= title %></h1>
-  <a href="/">Back to home</a>
-  
-  <a href=<%= `/category/add/${section}` %> style="display: block;">Add new item</a>
+
+  <div class="nav-links-wrapper">
+    <a href="/" class="nav-link">Back to home</a>
+    <a href="<%= `/category/add/${section}`%>" class="nav-link">Add new item</a>
+  </div>
 
   <div class="products">
     <% products.map(product => { %>
       <div class="product">
-        <div class="buttons">
-          <a href=<%= `edit/${section}/${product.id}` %>>Edit</a>
-          <a href=<%= `remove/${section}/${product.id}` %>>Remove</a>
-        </div>
+        <h2><%= product.name  %></h2>
         <div class="details">
           <% for( const [key, object] of Object.entries(product)) { %>
             <% if (key == "id") continue; %>
+            <% if (key == "name") continue; %>
             <div class="detail">
               <p><%= key %> :</p>
               <p><%= object %></p>
             </div>
           <% } %>
         </div>
+        <div class="buttons">
+          <a href="<%= `edit/${section}/${product.id}` %>" class="nav-link">Edit</a>
+          <a href="<%= `/remove/${section}/${product.id}` %>" class="nav-link remove">Remove</a>
+        </div>
       </div>
       <% }); %>
   </div>
 </body>
+<%- include("partials/footer.ejs")%>
 </html>

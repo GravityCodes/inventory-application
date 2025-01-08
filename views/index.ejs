@@ -7,20 +7,24 @@
   <title>Home</title>
 </head>
 <body>
-  <h1>Computer Inventory Application</h1>
-  <h2>My Computers</h2>
-  <ul>
-     <li><a href="/computer">Computers</a></li>
-  </ul>
-  <h2>Components</h2>
-  <ul>
-    <li><a href="/category/motherboards">Motherboards</a></li>
-    <li><a href="/category/cpu">CPUs</a></li>
-    <li><a href="/category/gpu">Graphic cards</a></li>
-    <li><a href="/category/rams">Rams</a></li>
-    <li><a href="/category/storage">Storage</a></li>
-    <li><a href="/category/psu">Power Supplies</a></li>
-    <li><a href="/category/cases">Cases</a></li>
-  </ul>
+  <div class="homepage">
+    <h1>Computer Inventory Application</h1>
+    <%- include("partials/errors.ejs") %>
+    <h2>My Computers</h2>
+    <ul>
+       <li><a href="/computer">Computers</a></li>
+    </ul>
+    <h2>Components</h2>
+    <ul>
+      <li><a href="/category/motherboards">Motherboards</a></li>
+      <li><a href="/category/cpu">CPUs</a></li>
+      <li><a href="/category/gpu">Graphic cards</a></li>
+      <li><a href="/category/rams">Rams</a></li>
+      <li><a href="/category/storage">Storage</a></li>
+      <li><a href="/category/psu">Power Supplies</a></li>
+      <li><a href="/category/cases">Cases</a></li>
+    </ul>
+  </div>
 </body>
+<%- include("partials/footer.ejs")%>
 </html>

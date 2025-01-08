@@ -11,7 +11,7 @@
           <% continue; %>
       <% } %>
       <div class="form-field">
-        <label for=<%= key %>><%= key %></label>
+        <label for=<%= key %>><%= key.charAt(0).toUpperCase() + key.slice(1) %></label>
         <input type=<%= typeof object == "string" ? "text" : "number"  %> value="<%= object %>" name="<%= key  %>" id="<%= key %>">
       </div>
     <% }; %>
@@ -19,5 +19,8 @@
     <button type="submit" >Update</button>
   
   </form>
-  <a href=<%= `/category/${table}`%>>Cancel</a>
+  <div class="cancel-wrapper">
+    <a href="<%= `/category/${table}`%>" class="cancel" >Cancel</a>
+  </div>
 </body>
+<%- include("partials/footer.ejs")%>

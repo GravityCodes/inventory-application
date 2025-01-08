@@ -21,13 +21,20 @@ async function editComputerFormGet (req, res) {
   const computer = await db.getComputerWithId(id);
   const components = await db.getComponents();
 
-  console.log(computer);
   res.render("editComputer", {id, computer: computer[0], components});
+}
+
+async function editComputerFormPost(req, res) {
+
+  await db.editComputer(req.body);
+
+  res.redirect("/computer");
 }
 
 module.exports = {
   computerGet,
   addComputerGet,
   addComputerPost,
-  editComputerFormGet
+  editComputerFormGet,
+  editComputerFormPost
 }

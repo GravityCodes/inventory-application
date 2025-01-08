@@ -6,7 +6,6 @@ async function homePageGet (req, res)  {
 }
 
 async function categoryGet (req, res) {
-
   let tableName = req.params.name;
   const table = req.params.name;
 
@@ -44,8 +43,13 @@ async function removeItemPost(req, res) {
   if(req.body.password != process.env.PASSWORD){
     return res.status(400).render("remove", {section: req.params.section, id: req.params.id, errors: [{msg: "Password is incorrect"}]});
   }
-  await db.removeItem(req.params.section, req.params.id);
-  res.redirect(`/`);
+  await db.removeItem(req.params.section, req.params.id)
+  .then(results => res.redirect("/"))
+  .catch(e => {
+    return res.status(400).render("index", {errors: [{msg: "Failed to remove component. Component used by a computer"}]});
+  });
+
+
 }
 
 module.exports = {

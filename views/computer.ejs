@@ -8,12 +8,15 @@
 </head>
 <body>
   <h1>Desktops</h1>
-  <a href="/">Back to home</a>
-  <a href="/computer/add">Add New Computer</a>
+  <div class="nav-links-wrapper">
+    <a href="/" class="nav-link">Back to home</a>
+    <a href="/computer/add" class="nav-link">Add New Computer</a>
+  </div>
   <div class="computer-container">
   <% computers.map(computer => { %>
     <div class="computer">
-      <div>Name: <%= computer.name %></div>
+      <h2><%= computer.name %></h2>
+      <h3>Specs</h3>
       <div>CPU: <%= computer.cpu_name %></div>
       <div>Graphics Card: <%= computer.gpu_name %></div>
       <div>Motherboard: <%= computer.motherboard_name %></div>
@@ -21,11 +24,12 @@
       <div>Storage: <%= computer.storage_name %></div>
       <div>Case: <%= computer.case_name %></div>
       <div class="buttons" style="margin-top:5px;">
-        <a href=<%= `/computer/edit/${computer.id}`%>>Edit</a>
-        <a href=<%= `/remove/computers/${computer.id}`%>>Remove</a>
+        <a href="<%= `/computer/edit/${computer.id}`%>" class="nav-link">Edit</a>
+        <a href="<%= `/remove/computers/${computer.id}`%>" class="nav-link remove">Remove</a>
       </div>
     </div>
   <% }) %>
 </div>
 </body>
+<%- include("partials/footer.ejs")%>
 </html>
