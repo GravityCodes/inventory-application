@@ -121,7 +121,7 @@ VALUES ('Gravity Desktop','1', '1', '1', '1', '1', '1', '1');
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString:`postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require'`,
+    connectionString:`postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require`,
   });
   await client.connect();
   await client.query(SQL);
