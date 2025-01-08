@@ -103,8 +103,13 @@ async function addItem(section,columns, values) {
 }
 
 async function removeItem(section, id) {
+  try{
   const query = format(`DELETE FROM %I WHERE id = (%L)`, section, id);
   await pool.query(query);
+  } 
+  catch (error) {
+    throw error;
+  }
 }
 
 async function getComponents() {
@@ -128,6 +133,13 @@ async function getComputerWithId(id) {
   return rows;
 }
 
+async function editComputer(params) {
+  await pool.query(`UPDATE computers 
+                 SET name = $1, cpu_id = $2, gpu_id = $3, motherboard_id = $4, psu_id = $5, ram_id = $6, storage_id = $7, case_id = $8
+                 WHERE id = $9;
+                 `, [params.name, params.cpu, params.gpu, params.motherboards, params.psu, params.rams, params.storage, params.cases, params.id]);
+}
+
 module.exports = {
   getComputers,
   getTable,
@@ -144,6 +156,7 @@ module.exports = {
   removeItem,
   getComponents,
   addComputer,
-  getComputerWithId
+  getComputerWithId,
+  editComputer
 
 }
